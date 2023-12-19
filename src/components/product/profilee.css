@@ -1,0 +1,28 @@
+.modal-content {
+    border-radius: 10px;
+  }
+  
+  .modal-header {
+    background-color: #007bff;
+    color: #fff;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .custom-input {
+    margin-bottom: 15px;
+  }
+  
+  .btn.modal__btn {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+  }
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
