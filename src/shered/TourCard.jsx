@@ -2,12 +2,12 @@ import React from "react";
 import { Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
 import calculateAvgRating from "../utils/avgRating";
-import img from "../assets/images/product1.jpg";
+// import img from "../assets/images/product1.jpg";
 
 import "./tour-card.css";
 
 const TourCard = ({ tour }) => {
-  const { id_product, title, city, price, featured, reviews } = tour;
+  const { id_product, photo, title, city, price, featured, reviews } = tour;
 
   const { totalRating, avgRating } = calculateAvgRating(reviews);
 
@@ -15,10 +15,10 @@ const TourCard = ({ tour }) => {
     <div className="tour__card">
       <Card>
         <div className="tour__img">
-          <img src={img} alt="tour-img" />
+          <img src={`http://localhost:8080/images/${photo}`} alt="product img" />
           {featured && <span>Best Seller</span> }
         </div>
-
+ 
         <CardBody>
           <div className="card__top d-flex align-items-center justify-content-between">
             <span className="tour__location d-flex align-items-center gap-1">

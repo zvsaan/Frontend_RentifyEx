@@ -57,7 +57,10 @@ const Header = () => {
   };
 
   const Logout = () => {
+    localStorage.setItem("status", JSON.stringify(null));
     localStorage.setItem("username", JSON.stringify(null));
+    localStorage.setItem("email", JSON.stringify(null));
+    localStorage.setItem("id", JSON.stringify(null));
     setItems(null);
 
     setTimeout(() => {
@@ -107,7 +110,8 @@ const Header = () => {
                         {item.display}
                       </NavLink>
                     </li>})
-                 ): roll === 'user' ? (
+                 ): roll === 'user' || roll === null || roll === '' ? 
+                 (
                   nav__links.map((item, index) => {
                     return <li className="nav__item" key={index}>
                       <NavLink
@@ -120,7 +124,19 @@ const Header = () => {
                         {item.display}
                       </NavLink>
                     </li>})
-                ): (<></>) }
+                ): (
+                  <li className="nav__item" key={'1'}>
+                      <NavLink
+                        HALO// to={item.path}
+                        end
+                        className={(navClass) =>
+                          navClass.isActive ? "active__link" : ""
+                        }
+                      >
+                        menu tidak ada
+                      </NavLink>
+                    </li>
+                ) } 
               </ul>
             </div>
 

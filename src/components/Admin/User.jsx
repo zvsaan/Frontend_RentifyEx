@@ -22,6 +22,7 @@ function User() {
   const [password, setPassword] = useState("");
   const [konfirmasi, setKonfirmasi] = useState("");
   const [show, setShow] = useState(false);
+  
   const UpdateDataRegister = async (event) => {
     event.preventDefault();
     if (password !== konfirmasi) {
@@ -62,10 +63,8 @@ function User() {
     setShow(false);
   };
 
-  // Mendefinisikan state untuk menampilkan atau menyembunyikan modal penghapusan
   const [showDelete, setShowDelete] = useState(false);
   const showModalDelete = (data) => {
-    // Fungsi untuk menampilkan modal penghapusan
     setId(data.id);
     setEmail(data.email);
     setUsername(data.username);
@@ -75,9 +74,8 @@ function User() {
   };
 
   const closeModalDelete = () => {
-    // Fungsi untuk menutup modal penghapusan
-    setId(""); // Mengatur kembali ID menjadi kosong
-    setEmail(""); // Mengatur kembali menjadi kosong
+    setId("");
+    setEmail("");
     setUsername("");
     setPassword("");
     setKonfirmasi("");
@@ -85,14 +83,13 @@ function User() {
   };
 
   const DeleteDataUser = async (event) => {
-    event.preventDefault(); // Mencegah perilaku bawaan dari event
+    event.preventDefault();
     try {
       const deleteData = await axios.delete(
-        // Mengirim permintaan penghapusan ke URL yang sesuai dengan ID
         `http://localhost:8080/delete/user/${id}`
       );
-      alert(deleteData.data.messages); // Menampilkan pesan yang dikembalikan dalam sebuah alert
-      window.location.reload(); // Memuat ulang halaman
+      alert(deleteData.data.messages);
+      window.location.reload();
     } catch (error) {
       alert("Data Gagal dihapus");
     }
@@ -114,7 +111,7 @@ function User() {
     <div className="body-flex">
       <div className="flex">
         <div className="col-10 p-5 mx-auto">
-          <h1 className="py-1">Data Register User</h1>
+          <h1 className="py-1">Data User</h1>
 
           <Modal show={show} onHide={closeModal}>
             <Modal.Header closeButton>

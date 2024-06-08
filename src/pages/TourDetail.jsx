@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 // import tourData from '../assets/data/tours'
 import calculateAvgRating from '../utils/avgRating'
 import avatar from '../assets/images/avatar.jpg'
-import img from '../assets/images/product1.jpg'
+// import img from '../assets/images/product1.jpg'
 import Booking from '../components/Booking/Booking'
 import axios from 'axios'
 
@@ -43,6 +43,8 @@ const TourDetail = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  
+  // console.log('Tours:', tours);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,7 +82,8 @@ const TourDetail = () => {
         <Row> 
           <Col lg='8'>
             <div className="tour__content">
-              <img src={img} alt="" />
+              {/* <img src={`http://localhost:8080/images/${photo}`} alt="" /> */}
+              <img src={`http://localhost:8080/images/${tours[0]?.photo}`} alt="" />
 
               <div className="tour__info">
                 <h2>{tours[0]?.title}</h2>

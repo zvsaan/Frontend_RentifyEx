@@ -1,130 +1,6 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import {
-//   Container,
-//   Row,
-//   Col,
-//   Form,
-//   FormGroup,
-//   Input,
-//   Button,
-// } from "reactstrap";
-// import "./profile.css";
-// import photo from '../../assets/images/product1.jpg'
-
-// const Profil = () => {
-//   const [userData, setUserData] = useState({
-//     username: "",
-//     email: "",
-//     password: "",
-//   });
-
-//   const getId  = JSON.parse(localStorage.getItem("id"));
-
-//   const GetDataUser = async () => {
-//     try {
-//       const response = await axios.get("http://localhost:8080/user/"+ getId);
-//       const userDataFromServer = response.data.data[0];
-
-//       setUserData({
-//         username: userDataFromServer.username,
-//         email: userDataFromServer.email,
-//         password: userDataFromServer.password,
-//       });
-//     } catch (error) {
-//       console.error("Error fetching user data:", error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     GetDataUser();
-//   }, []);
-
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setUserData((prevData) => ({
-//       ...prevData,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Implement your logic to send the updated user data to the server
-//     // using a PUT or PATCH request
-//     // Example:
-//     // axios.put("http://localhost:8080/user", userData).then((response) => {
-//     //   console.log("User data updated successfully");
-//     // });
-//   };
-
-//   return (
-//     <>
-//       <Container>
-//         <Row>
-//           <Col>
-//             <br />
-//             <Form onSubmit={handleSubmit}>
-//               <div className="profile-image-container">
-//                 <img
-//                   src={photo}
-//                   alt="Profile"
-//                   className="profile-image"
-//                 />
-//               </div>
-//               <FormGroup>
-//                 <Input
-//                   className="custom-input"
-//                   type="text"
-//                   name="username"
-//                   placeholder="Username"
-//                   value={userData.username}
-//                   onChange={handleInputChange}
-//                 />
-//               </FormGroup>
-//               <FormGroup>
-//                 <Input
-//                   className="custom-input"
-//                   type="text"
-//                   name="email"
-//                   placeholder="Email"
-//                   value={userData.email}
-//                   onChange={handleInputChange}
-//                 />
-//               </FormGroup>
-//               <FormGroup>
-//                 <Input
-//                   className="custom-input"
-//                   type="text"
-//                   name="password"
-//                   placeholder="Password"
-//                   value={userData.password}
-//                   onChange={handleInputChange}
-//                 />
-//               </FormGroup>
-//               <FormGroup>
-//                 <Input
-//                   className="custom-input"
-//                   type="file"
-//                   name="desc"
-//                   placeholder="Deskripsi"
-//                 />
-//               </FormGroup>
-//               <Button type="submit" className="btn primary__btn">
-//                 Edit Account
-//               </Button>
-//             </Form>
-//           </Col>
-//         </Row>
-//       </Container>
-//     </>
-//   );
-// };
-
-// export default Profil;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import './profilee.css'
+// import './profilee.css'      
 import {
   Container,
   Row,
@@ -147,7 +23,7 @@ const Profil = () => {
   });
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [message, setMessage] = useState(""); // Add this line
+  const [message, setMessage] = useState("");
 
   const getId = JSON.parse(localStorage.getItem("id"));
 
